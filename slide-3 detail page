@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style type="text/tailwindcss">
+    @layer components {
+        .active {
+            @apply font-bold shadow-lg
+        }
+    }
+  </style>
+</head>
+<body>
+    <!-- title -->
+    <div class="flex gap-10">
+        <div id="item-1" class=" active  w-full h-10 text-center p-2 cursor-pointer">
+            <p>TITLE 1</p>
+        </div>
+        |
+        <div id="item-2" class=" w-full h-10 text-center p-2 cursor-pointer">
+            <p>TITLE 2</p>
+        </div>
+        |
+        <div id="item-3" class=" w-full h-10 text-center p-2 cursor-pointer">
+            <p>TITLE 3</p>
+        </div>
+    </div>
+    <!-- desc -->
+    <div class="relative mt-10">
+        <div id="item-desc-1" class="absolute w-full bg-white z-10">
+            <p>1. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur, ipsam aut nobis explicabo consectetur molestiae voluptas quisquam perspiciatis? Sapiente harum animi rerum ullam aut voluptates aliquid magni ipsam, totam corrupti!</p>
+        </div>
+        <div id="item-desc-2" class="absolute w-full bg-white">
+            <p>2. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur, ipsam aut nobis explicabo consectetur molestiae voluptas quisquam perspiciatis? Sapiente harum animi rerum ullam aut voluptates aliquid magni ipsam, totam corrupti!</p>
+        </div>
+        <div id="item-desc-3" class="absolute w-full bg-white">
+            <p>3. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur, ipsam aut nobis explicabo consectetur molestiae voluptas quisquam perspiciatis? Sapiente harum animi rerum ullam aut voluptates aliquid magni ipsam, totam corrupti!</p>
+        </div>
+    </div>
+    <script>
+        let item1 = document.querySelector('#item-1');
+        let desc1 = document.querySelector('#item-desc-1');
+
+        let item2 = document.querySelector('#item-2');
+        let desc2 = document.querySelector('#item-desc-2');
+
+        let item3 = document.querySelector('#item-3');
+        let desc3 = document.querySelector('#item-desc-3');
+
+        item1.addEventListener("click", function() {
+            if(!item1.classList.contains('active')) {
+                item1.classList.add('active');
+                desc1.classList.add('z-10');
+            }
+            if(item2.classList.contains('active')) {
+                item2.classList.remove('active');
+                desc2.classList.remove('z-10');
+            }
+            if(item3.classList.contains('active')) {
+                item3.classList.remove('active');
+                desc2.classList.remove('z-10');
+            }
+        });
+
+        item2.addEventListener("click", function() {
+            if(item1.classList.contains('active')) {
+                item1.classList.remove('active');
+                desc1.classList.remove('z-10');
+            }
+            if(!item2.classList.contains('active')) {
+                item2.classList.add('active');
+                desc2.classList.add('z-10');
+            }
+            if(item3.classList.contains('active')) {
+                item3.classList.remove('active');
+                desc3.classList.remove('z-10');
+            }
+        });
+
+        item3.addEventListener("click", function() {
+            if(item1.classList.contains('active')) {
+                item1.classList.remove('active');
+                desc1.classList.remove('z-10');
+            }
+            if(item2.classList.contains('active')) {
+                item2.classList.remove('active');
+                desc2.classList.remove('z-10');
+            }
+            if(!item3.classList.contains('active')) {
+                item3.classList.add('active');
+                desc3.classList.add('z-10');
+            } 
+        });
+
+
+
+    </script>
+</body>
+</html>
